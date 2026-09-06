@@ -1,7 +1,9 @@
+from customer import CustomerManager
 from menu import Menu
 
 class FoodDeliverySystem:
     def __init__(self):
+        self.customer_manager = CustomerManager()
         self.menu_manager = Menu()
 
     def run(self):
@@ -15,10 +17,11 @@ class FoodDeliverySystem:
             print("5. View Completed Transactions")
             print("6. Exit")
             print("\n")
+            
             choice = input("Select an option: ")
 
             if choice == '1': 
-                ...
+                self.customer_manager.register_customer()
             elif choice == '2': 
                 self.menu_manager.view_menu()
             elif choice == '3': 
