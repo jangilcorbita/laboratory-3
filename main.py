@@ -1,8 +1,10 @@
 from customer import CustomerManager
+from menu import Menu
 
 class FoodDeliverySystem:
     def __init__(self):
         self.customer_manager = CustomerManager()
+        self.menu_manager = Menu()
 
     def run(self):
         while True:
