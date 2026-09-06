@@ -40,4 +40,4 @@ class OrderManager:
         self.orders[order_id] = new_order
         self.order_counter += 1
 
-        print(f"\nOrder {order_id} created successfully! Total: ₱{new_order.total:.2f}")
+        print(f"\n{order_id} created successfully! Total: ₱{new_order.total:.2f}")
