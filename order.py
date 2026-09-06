@@ -14,6 +14,8 @@ class OrderManager:
             print("Customer not found! Please register first.")
             return
 
+        customer = customer_manager.customers[customer_id]
+
         order_items = []
         while True:
             item_id = input("Enter Menu Item ID (or 'done' to finish): ").upper()
@@ -31,9 +33,11 @@ class OrderManager:
             return
 
         order_id = f"ORDER#{self.order_counter:03d}"
-        new_order = Order(order_id, customer_id, order_items)
+        new_order = Order(order_id, customer)
+        for item in order_items:
+            new_order.add_item(item)
+
         self.orders[order_id] = new_order
         self.order_counter += 1
 
-        total = sum(item.price for item in order_items)
-        print(f"\nOrder {order_id} created successfully! Total: ₱{total:.2f}")
+        print(f"\nOrder {order_id} created successfully! Total: ₱{new_order.total:.2f}")
